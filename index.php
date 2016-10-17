@@ -26,13 +26,7 @@
 
                 <h2>Titolo prodotto</h2>
                 <img alt="foto" title="foto" src="" />
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                <p>Descrizione e info varie</p>
 
             </article>
         </section>
