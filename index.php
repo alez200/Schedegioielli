@@ -6,6 +6,15 @@
  * Time: 16:41
  */
 
+
+// carico l'Autoload delle classi
+
+require_once( 'Application' . DIRECTORY_SEPARATOR . 'Autoloader.php' );
+
+$prodotti= new Models_product();
+
+print_r($prodotti->getAll());
+
 ?>
 <!DOCTYPE HTML>
 
