@@ -9,7 +9,6 @@
 class Models_Model
 {
 
-
     protected function getDb()
     {
         return Models_DbConnect::run();
@@ -44,6 +43,26 @@ class Models_Model
             $this->getDb()->commit();
 
             return $insert;
+
+        } catch(Exception $e) {
+
+            // Riabilito l'auto-commit
+            $this->getDb()->rollBack();
+            die("Errore imprevisto " . $e->getMessage());
+
+        }
+
+
+    }
+
+    public function create($cmd) {
+
+        try {
+
+            $create = $this->getDb()->execQuery($cmd);
+            $this->getDb()->commit();
+
+            return $create;
 
         } catch(Exception $e) {
 

@@ -10,29 +10,34 @@ class Models_Product extends Models_Model
 {
 
 
-    protected $table = 'promohp';
+    protected $table = 'nor_prodotti';
 
 
-    private $id;
+    private $id_prodotto;
+    private $id_linea;
+    private $id_collezione;
+    private $codice;
     private $titolo;
     private $abstract;
-    private $testo;
+    private $materiale;
     private $coverImg;
-    private $categoria_ed;
+    private $techImg;
     private $posizione;
-    private $tipoLayout;
-    private $link;
+    private $prezzo;
+    private $dettaglitech;
     private $idUserIserimento;
     private $idUserModifica;
+    private $insertDate;
+    private $updateDate;
     private $status;
 
 
 
 
-    public function getPromozionebyId($id){
+    public function getProdottoyId($id_prodotto){
 
         $cmd='SELECT * FROM '.$this->table.' where id= :id LIMIT 1';
-        $arrayCampi=array(":id" => $id);
+        $arrayCampi=array(":id_prodotto" => $id_prodotto);
 
         $result=$this->getResult($cmd, $arrayCampi);
 
@@ -40,64 +45,77 @@ class Models_Product extends Models_Model
 
     }
 
-    public function createPromotion($post){
+    public function createProdotto($post){
 
         $this->getDb()->beginTransaction();
 
         $cmd="INSERT INTO ".
-            $this->table."
-              (`titolo`,
-              `abstract`,
-              `testo`,
-              `coverImg`,
-              `categoria_ed`,
-              `posizione`,
-              `tipoLayout`,
-              `link`,
-              `idUserIserimento`,
-              `status`)
+            $this->table." (
+                `titolo`,
+                `codice`,
+                `materiale`,
+                `coverImg`,
+                `techImg`,
+                prezzo
+            )
               VALUES
-              (:titolo,
-              :abstract,
-              :testo,
-              :coverImg,
-              :categoria_ed,
-              :posizione,
-              :tipoLayout,
-              :link,
-              :idUserIserimento,
-              :status)";
+              ( :titolo,
+                :codice,
+                :materiale,
+                :coverImg,
+                :techImg,
+                :prezzo )";
 
         $arrayCampi=array(
             ":titolo"=>$post['titolo'],
-            ":abstract"=>$post['abstract'],
-            ":testo"=>$post['testo'],
+            ":codice"=>$post['codice'],
+            ":materiale"=>$post['materiale'],
             ":coverImg"=>$post['coverImg'],
-            ":categoria_ed"=>$post['categoria_ed'],
-            ":posizione"=>$post['posizione'],
-            ":tipoLayout"=>$post['tipoLayout'],
-            ":link"=>$post['link'],
-            ":idUserIserimento"=>$post['idUserIserimento'],
-            ":status"=>$post['status']
+            ":techImg"=>$post['techImg'],
+            ":prezzo"=>$post['prezzo']
         );
+
 
         $result=$this->insert($cmd, $arrayCampi);
 
-        try {
+        return $result;
 
-            $insert = $this->getDb()->execQueryPrepare($cmd,$arrayCampi);
-            $this->getDb()->commit();
+    }
 
-        } catch(Exception $e) {
+    public function createTableProdotto()
+    {
+        $this->getDb()->beginTransaction();
 
-            // Riabilito l'auto-commit
-            $this->getDb()->rollBack();
-            die("Errore imprevisto " . $e->getMessage());
+        $cmd="CREATE TABLE IF NOT EXISTS ".$this->table."(
+          `id_prodotto` int(11) NOT NULL AUTO_INCREMENT,
+          `id_linea` int(11) ,
+          `id_collezione` int(11) ,
+          `codice` varchar(15) NOT NULL,
+          `titolo` text NOT NULL,
+          `abstract` text NOT NULL,
+          `materiale` text ,
+          `coverImg` text,
+          `techImg` text ,
+          `posizione` int(11) DEFAULT 1,
+          `prezzo` decimal(10,2),
+          `dettaglitech` text,
+          `idUserIserimento` int(11),
+          `idUserModifica` int(11),
+          `insertDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          `updateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          `status` int(11) NOT NULL DEFAULT 1,
+          PRIMARY KEY (`id_prodotto`)
+        )";
 
-        }
+        $result=$this->create($cmd);
 
         return $result;
 
+    }
+
+    public function getAbstract()
+    {
+        return $this->abstract;
     }
 
 }

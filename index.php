@@ -13,7 +13,7 @@ require_once( 'Application' . DIRECTORY_SEPARATOR . 'Autoloader.php' );
 
 $prodotti= new Models_product();
 
-print_r($prodotti->getAll());
+$prodotti->createTableProdotto();
 
 ?>
 <!DOCTYPE HTML>
@@ -27,33 +27,29 @@ print_r($prodotti->getAll());
 
     <body>
 
-        <!-- COLLANE -->
-        <section>
-            <h1>COLLANE</h1>
+    <form method="post" action="" id="insert_product">
 
-            <article>
 
-                <h2>Titolo prodotto</h2>
-                <img alt="foto" title="foto" src="" />
-                <p>Descrizione e info varie</p>
+        <div><input type="text" name="titolo" id="titolo" /><label for="titolo">Nome prodotto</label></div>
+        <div><input type="text" name="codice" id="codice" /><label for="codice">Codice prodotto</label></div>
+        <div><input type="text" name="materiale" id="materiale" value="alluminio"/><label for="materiale">Materiale prodotto</label></div>
+        <div><input type="text" name="coverImg" id="coverImg"/><label for="coverImg">Immagine prodotto</label></div>
+        <div><input type="text" name="techImg" id="techImg"/><label for="techImg">Immagine tecnica prodotto</label></div>
+        <div><input type="text" name="prezzo" id="techImg" value="0"/><label for="techImg">Prezzo prodotto</label></div>
 
-            </article>
-        </section>
+        <div><input type="submit" name="inserisci" /></div>
 
-        <!-- ANELLI -->
-        <section>
-            <h1>ANELLI</h1>
-        </section>
 
-        <!-- BRACCIALETTI -->
-        <section>
-            <h1>BRACCIALETTI</h1>
-        </section>
+    </form>
 
-        <!-- ORECCHINI -->
-        <section>
-            <h1>ORECCHINI</h1>
-        </section>
+    <?php if(isset($_REQUEST['inserisci'])){
+
+        $post=$_REQUEST;
+        $response=$prodotti->createProdotto($post);
+
+        print_r( $response );
+
+    }?>
 
 
     </body>
