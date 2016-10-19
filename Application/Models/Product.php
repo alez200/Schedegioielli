@@ -45,6 +45,15 @@ class Models_Product extends Models_Model
 
     }
 
+    public function getAllProdotti(){
+
+
+        $result=$this->getAll();
+
+        return $result;
+
+    }
+
     public function createProdotto($post){
 
         $this->getDb()->beginTransaction();
