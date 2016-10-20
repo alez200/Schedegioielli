@@ -7,51 +7,56 @@
  */
 
 
-// carico l'Autoload delle classi
+    // carico l'Autoload delle classi
 
-require_once( 'Application' . DIRECTORY_SEPARATOR . 'Autoloader.php' );
+    require_once( 'Application' . DIRECTORY_SEPARATOR . 'Autoloader.php' );
 
-$prodotti= new Models_product();
+    $prodotti= new Models_product();
+    $lista = $prodotti->getAll();
+    $layout = '/Layout/layout.phtml';
+    $title_page = 'Lista prodotti';
 
-$prodotti->createTableProdotto();
+    define( "MEDIA_URL", $_SERVER['REQUEST_URI']."Asset" );
+    define( "TITLE_SITE", "New or Review Design" );
 
 ?>
-<!DOCTYPE HTML>
-
-<html>
-
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Schede gioielli</title>
-    </head>
-
-    <body>
-
-    <form method="post" action="" id="insert_product">
 
 
-        <div><input type="text" name="titolo" id="titolo" /><label for="titolo">Nome prodotto</label></div>
-        <div><input type="text" name="codice" id="codice" /><label for="codice">Codice prodotto</label></div>
-        <div><input type="text" name="materiale" id="materiale" value="alluminio"/><label for="materiale">Materiale prodotto</label></div>
-        <div><input type="text" name="coverImg" id="coverImg"/><label for="coverImg">Immagine prodotto</label></div>
-        <div><input type="text" name="techImg" id="techImg"/><label for="techImg">Immagine tecnica prodotto</label></div>
-        <div><input type="text" name="prezzo" id="techImg" value="0"/><label for="techImg">Prezzo prodotto</label></div>
 
-        <div><input type="submit" name="inserisci" /></div>
+<?php ob_start() ?>
 
 
-    </form>
 
-    <?php if(isset($_REQUEST['inserisci'])){
+    <section class="[ productList ] [ grid__row ]"><!-- Lista Prodotti  -->
 
-        $post=$_REQUEST;
-        $response=$prodotti->createProdotto($post);
+        <h1 class="[ productCoverList__title ] [ grid__col ]" >
+            Elenco gioielli
+        </h1>
 
-        print_r( $response );
+        <?php foreach($lista as $key => $prodotto) { ?>
 
-    }?>
+        <article class="[ productList__item ] [ grid__row ]">
+
+            <div class="[ productList__item__img ][ grid__col grid__col--w20 ]">
+                <img src="Asset/Img/<?php echo $prodotto['coverImg']; ?>">
+            </div>
+
+            <div class="[ productList__item__title ][ grid__col grid__col--w80 ]">
+                <h2><?php echo $prodotto['titolo']; ?></h2>
+            </div>
+
+        </article>
+
+        <?php }; ?>
 
 
-    </body>
+    </section>
 
-</html>
+
+
+
+
+
+<?php $content = ob_get_clean() ?>
+
+<?php require_once ($layout) ?>

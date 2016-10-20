@@ -1,0 +1,451 @@
+/**
+ * _ _       ___   ___  ___  ___  _  ___   _ _
+ *| \ | ___ | . \ | . \| __>/ __>| |/  _> | \ |
+ *|   |/ . \|   / | | || _> \__ \| || <_/\|   |
+ *|_\_|\___/|_\_\ |___/|___><___/|_|`____/|_\_|
+
+ * CONTENTS
+ *
+ * IMPORTS
+ * Normalize.css........A level playing field.
+ * Font-awesome.css.....Font family for vectorial icons.
+ *
+ * SETTINGS
+ * Font face............Globally-available font-family
+ *
+ * GENERIC
+ * Griglia..............Custom grid.
+ * Box-sizing...........Better default `box-sizing`.
+ * Html & body..........Setting generic font-family, font-size, background-color + other generic style
+ *
+ * LAYOUT
+ * Header...............Header elements.
+ * Footer...............Footer elements.
+ * Full-page-cover......Hp cover.
+ *
+ */
+
+
+
+
+/*------------------------------------*\
+    #IMPORTS - Normalize.css
+\*------------------------------------*/
+
+@import "normalize.min.css";
+
+
+
+
+
+/*------------------------------------*\
+    #IMPORTS - Font-awesome.css
+\*------------------------------------*/
+
+@import "font-awesome.min.css";
+
+
+
+
+
+/*------------------------------------*\
+    #GENERIC - Griglia
+\*------------------------------------*/
+
+@import "grid.css";
+
+
+
+
+
+/*------------------------------------*\
+    #SETTINGS - font face
+\*------------------------------------*/
+
+@font-face {
+
+    font-family: 'gothambook';
+    src: url('../Font/gotham-book-webfont.eot');
+    src: url('../Font/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../Font/gotham-book-webfont.woff') format('woff'),
+    url('../Font/gotham-book-webfont.ttf') format('truetype'),
+    url('../Font/gotham-book-webfont.svg#gothambook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+
+    font-family: 'gothambold';
+    src: url('../Font/gotham-bold-webfont.eot');
+    src: url('../Font/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../Font/gotham-bold-webfont.woff') format('woff'),
+    url('../Font/gotham-bold-webfont.ttf') format('truetype'),
+    url('../Font/gotham-bold-webfont.svg#gothambook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #GENERIC - Box-sizing
+\*------------------------------------*/
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #GENERIC - Html & body
+\*------------------------------------*/
+
+@-ms-viewport{
+    width: device-width;
+}
+
+html {
+    font-size: 100%;
+    font-family: gothambook, Geneva, Tahoma, Verdana, sans-serif;
+    font-weight: 300;
+}
+
+body {
+    padding:0;
+    margin:0;
+}
+
+img {
+    max-width:100%;
+}
+
+.hidden{
+    display:none
+}
+
+p {
+
+    margin:0;
+    padding:0;
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #LAYOUT - Header
+\*------------------------------------*/
+
+.header {
+
+    background: #000;
+    color:#fff;
+    height:50px;
+}
+
+.header--hidden{
+
+    display:none;
+
+}
+
+.header a{
+
+    color:#fff;
+    text-decoration: none;
+
+}
+
+.header__logo {
+
+    margin:0;
+    background: url(../Img/logoWhite.svg) no-repeat 0 0;
+    background-size: 50px;
+    padding:0 0 0 60px;
+    line-height:50px;
+
+}
+
+.header__logo img {
+    height: 20px;
+    margin: 15px 0;
+    vertical-align: middle;
+}
+
+.header__nav {
+
+    text-align:right;
+
+}
+
+.header__nav ul {
+
+    padding:0;
+    margin:0;
+
+}
+
+.header__nav li {
+    line-height:50px;
+    display: inline-block;
+    padding:0 0 0 20px;
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #LAYOUT - Footer
+\*------------------------------------*/
+
+.footer {
+
+    background: #383838;
+    background: #fff;
+    color:#000;
+    padding:25px 0;
+    border-top:5px solid #8e5a9f;
+    clear:both;
+
+}
+
+.footer a{
+
+    color:#000;
+    text-decoration: none;
+
+}
+
+.footer__contatti h1 {
+
+    height:auto;
+    margin:0 0 25px;
+    padding:0;
+}
+
+.footer__contatti h1 img {
+
+    height:20px;
+
+}
+
+.footer__contatti ul, .footer__seo ul {
+
+    margin:0;
+    padding:0;
+    font-size:14px;
+    list-style-type: none;
+
+}
+
+.footer__contatti ul li {
+
+    padding:0 0 14px;
+
+}
+
+.footer__seo {
+
+    text-align: right;
+
+}
+
+.footer__seo ul {
+
+    margin:0 0 30px;
+
+}
+
+.footer__seo li {
+
+    display: inline-block;
+    padding:0 0 0 20px;
+
+}
+
+.footer__seo__hidden {
+
+    display: none;
+
+}
+
+.footer__seo__socialLink li {
+
+    font-size: 30px;
+
+}
+
+.footer__copy {
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #LAYOUT - Full-page-cover
+\*------------------------------------*/
+
+.fullPageCover {
+
+    width:100%;
+    background: url("../Img/newpromo.jpg");
+    background-size: cover;
+
+}
+.fullPageCover__txt__title {
+
+    width:80%;
+    margin:0 auto;
+
+}
+.fullPageCover__txt__desc {
+
+    display:none;
+
+}
+.fullPageCover__txt__linkbtn {
+
+    display:none;
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #LAYOUT - sectionCover
+\*------------------------------------*/
+
+.sectionCover {
+
+    position:relative;
+
+}
+
+.sectionCover__txt {
+    transition: background-size 0.5s ease;
+    background-position: center;
+    background-size: cover;
+    text-align:center;
+    padding:0;
+    color:#fff;
+    font-weight:bold;
+    font-family: gothambold, Geneva, Tahoma, Verdana, sans-serif;
+    border-top:1px solid #eee;
+
+}
+
+.sectionCover__txt:hover {
+
+    background-size: cover;
+
+
+}
+
+.sectionCover__txt--review {
+
+    font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+
+
+}
+
+.sectionCover__txt--new {
+
+    font-family: gothambold, Geneva, Tahoma, Verdana, sans-serif;
+    border-right:1px solid #eee;
+
+
+}
+
+.sectionCover__txt__container {
+
+    background: rgba(0,0,0,0.4);
+
+}
+
+.sectionCover__txt__title {
+
+    font-size:60px;
+    font-weight:bold;
+    padding:0;
+    margin:0;
+}
+
+.sectionCover__txt__subtitle {
+
+    font-size:30px;
+    font-weight:bold;
+    padding:0;
+    margin:0;
+
+}
+
+.sectionCover__txt__desc {
+
+    display:none;
+
+}
+.sectionCover__txt__linkbtn a{
+
+    display:inline-block;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0 0;
+    padding:10px;
+    background: #fff;
+    color:#000;
+    text-decoration: none;
+
+}
+
+.sectionCover__txt__linkbtn a:hover {
+
+    background: #000;
+    color:#fff;
+
+}
+
+.sectionCover__img {
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    #AL13 - list product
+\*------------------------------------*/
+
+.productList__item {
+
+    border-top:3px solid #383838;
+    padding:20px 0 0;
+    margin:20px 0 0;
+
+}
+
