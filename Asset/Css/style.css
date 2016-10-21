@@ -62,31 +62,7 @@
     #SETTINGS - font face
 \*------------------------------------*/
 
-@font-face {
 
-    font-family: 'gothambook';
-    src: url('../Font/gotham-book-webfont.eot');
-    src: url('../Font/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../Font/gotham-book-webfont.woff') format('woff'),
-    url('../Font/gotham-book-webfont.ttf') format('truetype'),
-    url('../Font/gotham-book-webfont.svg#gothambook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-
-    font-family: 'gothambold';
-    src: url('../Font/gotham-bold-webfont.eot');
-    src: url('../Font/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../Font/gotham-bold-webfont.woff') format('woff'),
-    url('../Font/gotham-bold-webfont.ttf') format('truetype'),
-    url('../Font/gotham-bold-webfont.svg#gothambook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 
 
@@ -121,7 +97,7 @@ html {
 
 html {
     font-size: 100%;
-    font-family: gothambook, Geneva, Tahoma, Verdana, sans-serif;
+    font-family: 'Montserrat', Geneva, Tahoma, Verdana, sans-serif;
     font-weight: 300;
 }
 
@@ -219,9 +195,8 @@ p {
 
 .footer {
 
-    background: #383838;
-    background: #fff;
-    color:#000;
+    background: #000;
+    color:#fff;
     padding:25px 0;
     border-top:5px solid #8e5a9f;
     clear:both;
@@ -230,7 +205,7 @@ p {
 
 .footer a{
 
-    color:#000;
+    color:#fff;
     text-decoration: none;
 
 }
@@ -443,9 +418,21 @@ p {
 
 .productList__item {
 
-    border-top:3px solid #383838;
-    padding:20px 0 0;
     margin:20px 0 0;
 
 }
 
+
+.productList__item  .grid__col div {
+
+    border-top:2px solid #8e5a9f;
+    padding:20px 0;;
+
+}
+
+.productList__item__title h2 {
+
+
+    color:#8e5a9f;
+
+}

@@ -38,11 +38,17 @@
         <article class="[ productList__item ] [ grid__row ]">
 
             <div class="[ productList__item__img ][ grid__col grid__col--w20 ]">
-                <img src="Asset/Img/<?php echo $prodotto['coverImg']; ?>">
+                <div>
+                    <img src="Asset/Img/<?php echo $prodotto['coverImg']; ?>">
+                </div>
             </div>
 
             <div class="[ productList__item__title ][ grid__col grid__col--w80 ]">
-                <h2><?php echo $prodotto['titolo']; ?></h2>
+                <div>
+                    <h2><?php echo $prodotto['titolo']; ?></h2>
+                    <p><strong>Prezzo:</strong> <?php echo $prodotto['prezzo']; ?></p>
+                    <p><strong>Anno di composizione:</strong> <?php echo explode('-',$prodotto['insertDate'])[0]; ?></p>
+                </div>
             </div>
 
         </article>
