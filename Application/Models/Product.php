@@ -33,11 +33,21 @@ class Models_Product extends Models_Model
 
 
 
+    public function getProdottobyId($id_prodotto){
 
-    public function getProdottoyId($id_prodotto){
-
-        $cmd='SELECT * FROM '.$this->table.' where id= :id LIMIT 1';
+        $cmd='SELECT * FROM '.$this->table.' where id_prodotto= :id_prodotto LIMIT 1';
         $arrayCampi=array(":id_prodotto" => $id_prodotto);
+
+        $result=$this->getResult($cmd, $arrayCampi);
+
+        return $result;
+
+    }
+
+    public function getProdottobyLinea($id_linea){
+
+        $cmd='SELECT * FROM '.$this->table.' where id_linea= :id_linea' ;
+        $arrayCampi=array(":id_linea" => $id_linea);
 
         $result=$this->getResult($cmd, $arrayCampi);
 

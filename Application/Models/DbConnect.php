@@ -23,11 +23,12 @@ class Models_DbConnect extends Singleton  {
     protected function costruttore(){
 
         // Parametri di connessione
-        $host = 'localhost';
-        $user = 'alez200c81652';
-        $password = 'alez200c81652';
-        $database = 'alez200c81652';
-        $charset = 'utf8';
+        $host = HOST;
+        $user = USER;
+        $password = PASSWORD;
+        $database = DATABASE;
+        $charset = CHARSET;
+
 
         // connessione in construct per non chiamare il metodo
         $this->connect($host, $user, $password, $database, $charset);
