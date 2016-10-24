@@ -62,31 +62,6 @@
     #SETTINGS - font face
 \*------------------------------------*/
 
-@font-face {
-
-    font-family: 'gothambook';
-    src: url('../Font/gotham-book-webfont.eot');
-    src: url('../Font/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../Font/gotham-book-webfont.woff') format('woff'),
-    url('../Font/gotham-book-webfont.ttf') format('truetype'),
-    url('../Font/gotham-book-webfont.svg#gothambook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-
-    font-family: 'gothambold';
-    src: url('../Font/gotham-bold-webfont.eot');
-    src: url('../Font/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../Font/gotham-bold-webfont.woff') format('woff'),
-    url('../Font/gotham-bold-webfont.ttf') format('truetype'),
-    url('../Font/gotham-bold-webfont.svg#gothambook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 
 
@@ -121,7 +96,7 @@ html {
 
 html {
     font-size: 100%;
-    font-family: gothambook, Geneva, Tahoma, Verdana, sans-serif;
+    font-family: 'Montserrat', Geneva, Tahoma, Verdana, sans-serif;
     font-weight: 300;
 }
 
@@ -210,6 +185,23 @@ p {
 }
 
 
+@media print {
+
+    .header {
+
+        background: #fff;
+        color:#000;
+
+    }
+
+    .header__logo {
+
+        background: url(../Img/logo.svg) no-repeat 0 0;
+
+    }
+
+}
+
 
 
 
@@ -219,18 +211,27 @@ p {
 
 .footer {
 
-    background: #383838;
-    background: #fff;
-    color:#000;
+    background: #000;
+    color: #fff;
     padding:25px 0;
     border-top:5px solid #8e5a9f;
     clear:both;
 
 }
 
+@media print {
+
+    .footer {
+
+        display:none;
+
+    }
+
+}
+
 .footer a{
 
-    color:#000;
+    color:#fff;
     text-decoration: none;
 
 }
@@ -441,11 +442,47 @@ p {
     #AL13 - list product
 \*------------------------------------*/
 
+.productList__title {
+
+    font-size:2.2em;
+
+}
+
+.productList__titleline {
+
+    font-size:2em;
+    margin:30px 0 0;
+
+}
+
+@media print {
+
+    .productList__titleline {
+
+        page-break-after: always;
+        font-size: 5em;
+        position: relative;
+
+    }
+
+    .productList__item {
+
+        position: relative;
+
+    }
+
+}
+
 .productList__item {
 
-    border-top:3px solid #383838;
+}
+
+.productList__item .grid__col div{
+
+    border-top:2px solid rgba(0,0,0,0.4);
     padding:20px 0 0;
     margin:20px 0 0;
 
 }
+
 

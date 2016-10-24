@@ -1,0 +1,38 @@
+# Sezione Error Page
+ErrorDocument 400 :)
+ErrorDocument 401 :)
+ErrorDocument 402 :)
+ErrorDocument 403 ;)
+ErrorDocument 404 /index.php
+ErrorDocument 500 :)
+
+# Sezione Security
+<Files .htaccess>
+ORDER allow,deny
+deny FROM ALL
+</Files>
+
+<Files .htpasswd>
+ORDER allow,deny
+deny FROM ALL
+</Files>
+
+# Opzioni rewriting
+Options All -Indexes
+RewriteEngine On
+
+
+# a molti motori di ricerca non piace questa tecnica, attivala solo se sei sicuro.
+# una lista la trovi su http://www.useragentstring.com/pages/Crawlerlist/
+#RewriteCond %{HTTP_USER_AGENT} ^Googlebot.* [OR]
+#RewriteCond %{HTTP_USER_AGENT} ^Googlebot-Image.* [OR]
+#RewriteRule ^/$ /search_engine.php [L]
+
+# se hai esigenze particolari puoi attivare la visualizzazione per Lynx
+#RewriteCond %{HTTP_USER_AGENT} ^Lynx.*
+#RewriteRule ^/$ /lynx.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !=/public/(.+)
+RewriteRule ^ index.php [L]

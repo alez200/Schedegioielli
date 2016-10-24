@@ -1,0 +1,69 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: casa
+ * Date: 23/10/2016
+ * Time: 11:13
+ */
+
+
+
+?>
+
+<?php ob_start() ?>
+
+<section class="[ productList ] [ grid__row ]"><!-- Lista Prodotti  -->
+
+    <h1 class="[ productList__title ] [ grid__col ]" >
+        Elenco gioielli
+    </h1>
+
+    <?php foreach($lista_linea as $key => $linea) { ?>
+
+
+        <h2 class="[ productList__titleline ] [ grid__col ]"><?php echo $linea['titolo_linea']; ?></h2>
+
+        <?php
+
+        $lista_prodotti = $prodotti->getProdottobyLinea( $linea['id_linea']);
+        foreach($lista_prodotti as $key => $prodotto) {
+
+            ?>
+
+
+            <article class="[ productList__item ] [ grid__row ]">
+
+                <div class="[ productList__item__img ][ grid__col grid__col--w20 ]">
+                    <div>
+                        <img src="<?php echo IMAGE_URL.$prodotto['coverImg']; ?>" />
+                    </div>
+
+                </div>
+
+                <div class="[ productList__item__title ][ grid__col grid__col--w80 ]">
+
+                    <div>
+                        <h1><?php echo $prodotto['titolo']; ?></h1>
+
+                        <p><strong>Prezzo:</strong> <?php echo $prodotto['prezzo']; ?></p>
+                        <p><strong>Anno di produzione:</strong> <?php echo explode('-',$prodotto['insertDate'])[0]; ?></p>
+
+                    </div>
+                </div>
+
+            </article>
+
+        <?php }; ?>
+    <?php }; ?>
+
+
+</section>
+
+
+
+
+
+
+<?php $content = ob_get_clean() ?>
+
+<?php require_once ($layout) ?>
