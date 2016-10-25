@@ -49,11 +49,18 @@ class Controller_Router extends Singleton {
 
         $controller = 'Controller_'.ucfirst($controller);
 
-        $controller = new $controller;
+        if (class_exists($controller)) {
+
+            $controller = new $controller;
+
+
+        } else {
+
+            $controller = new  Controller_Error;
+
+        }
+
 
     }
-
-
-
 
 }
