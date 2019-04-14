@@ -23,7 +23,9 @@ class Controller_Home
 
         $prodotti= new Models_Product();
         $linee= new Models_Linea();
-        $lista_linea = $linee->getAll();
+        //$lista_linea = $linee->getAll();
+        $lista_linea = $linee->getLineabyId(5);
+
         $layout = '/Layout/layout.phtml';
         $title_page = 'Lista prodotti';
         $vista ='Application/View/Home.phtml';

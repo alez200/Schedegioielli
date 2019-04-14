@@ -26,7 +26,9 @@ class Models_Linea extends Models_Model
 
     public function getLineabyId($id_linea){
 
-        $cmd='SELECT * FROM '.$this->table.' where id= :id LIMIT 1';
+        echo $id_linea;
+
+        $cmd='SELECT * FROM '.$this->table.' where id_linea = :id_linea LIMIT 1';
         $arrayCampi=array(":id_linea" => $id_linea);
 
         $result=$this->getResult($cmd, $arrayCampi);
